@@ -1,6 +1,24 @@
+variable "gke_sub_module_source" {
+  type        = string
+  description = "The URL of repository and specific release of private-gke-cluster module"
+  default     = "github.com/broadinstitute/tgg-terraform-modules//private-gke-cluster?ref=private-gke-cluster-v1.0.3"
+}
+
 variable "project_id" {
   description = "The name of the target GCP project, for creating IAM memberships"
   type        = string
+}
+
+variable "default_resource_region" {
+  type        = string
+  description = "For managed items that require a region/location"
+  default     = "us-east1"
+}
+
+variable "deletion_protection" {
+  description = "Whether or not to allow Terraform to destroy the cluster"
+  type        = string
+  default     = true
 }
 
 variable "infra_prefix" {

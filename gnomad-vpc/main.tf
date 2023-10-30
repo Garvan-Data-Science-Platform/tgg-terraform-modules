@@ -1,18 +1,26 @@
 module "gnomad-vpc" {
-  source       = "github.com/broadinstitute/tgg-terraform-modules//vpc-with-nat-subnet?ref=vpc-with-nat-subnet-v1.0.0"
+  source       = var.vpc_sub_module_source
   network_name = var.network_name_prefix
   subnets = [
     {
       subnet_name_suffix           = "gke"
-      subnet_region                = "us-east1"
+      subnet_region                = var.subnet_region
       ip_cidr_range                = var.gke_primary_subnet_range
       enable_private_google_access = true
+      subnet_flow_logs             = false
+      subnet_flow_logs_sampling    = "0.5"
+      subnet_flow_logs_metadata    = "EXCLUDE_ALL_METADATA"
+      subnet_flow_logs_filter      = "true"
     },
     {
       subnet_name_suffix           = "dataproc"
-      subnet_region                = "us-east1"
+      subnet_region                = var.subnet_region
       ip_cidr_range                = var.dataproc_primary_subnet_range
       enable_private_google_access = true
+      subnet_flow_logs             = false
+      subnet_flow_logs_sampling    = "0.5"
+      subnet_flow_logs_metadata    = "EXCLUDE_ALL_METADATA"
+      subnet_flow_logs_filter      = "true"
     }
   ]
 }
