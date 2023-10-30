@@ -1,6 +1,7 @@
-project_name = "gnomad-dev"
+project_name = "GnomAD-dev"
 
-region = "australia-southeast1"
+project_id = "gnomad-dev"
 
-zone = "australia-southeast1-a"
+default_resource_region = "australia-southeast1"
 
+owner_group_id = terraform-sa@gnomad-dev.iam.gserviceaccount.com

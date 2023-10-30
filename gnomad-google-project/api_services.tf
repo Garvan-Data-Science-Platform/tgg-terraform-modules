@@ -3,7 +3,7 @@ module "project-services" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
   version = "13.0.0"
 
-  project_id = var.project_name
+  project_id = var.project_id
 
   activate_apis = var.apis_to_enable
 
@@ -17,7 +17,7 @@ module "default-project-services" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
   version = "13.0.0"
 
-  project_id = var.project_name
+  project_id = var.project_id
 
   activate_apis = [
     "dataproc.googleapis.com",

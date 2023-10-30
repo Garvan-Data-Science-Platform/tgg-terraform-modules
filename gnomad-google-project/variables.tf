@@ -1,11 +1,6 @@
-variable "project_name" {
+variable "project_id" {
   type        = string
-  description = "The human readable name of the project. Does not need to be unique."
-}
-
-variable "region" {
-  description = "Region for GCP resources"
-  type = string
+  description = "The unique id of the project."
 }
 
 variable "apis_to_enable" {
@@ -18,6 +13,11 @@ variable "enable_default_services" {
   type        = bool
   description = "Whether or not to enable the default cloudfunction or dataproc services. Set to false if you don't want to enable these, or if you want to manage them via apis_to_enable."
   default     = true
+}
+
+variable "owner_group_id" {
+  type        = string
+  description = "The email address for the group you would like to grant Owner access on the project."
 }
 
 variable "allow_broad_inst_ssh_access" {
@@ -35,6 +35,12 @@ variable "configure_dataproc_firewall_rules" {
 variable "primary_user_principal" {
   type        = string
   description = "The primary user/group of the GCP project. This grants Editor access, and other permissions generally required to use services. Provide a IAM principal style {group/user/serviceAccount}:{email} string."
+}
+
+variable "default_resource_region" {
+  type        = string
+  description = "For managed items that require a region/location"
+  default     = "australia-southeast1"
 }
 
 variable "create_default_buckets" {
