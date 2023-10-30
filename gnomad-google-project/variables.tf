@@ -1,16 +1,11 @@
-variable "project_id" {
-  type        = string
-  description = "The string that should be used to create the unique ID google project; Will be suffixed with a random identifier."
-
-  validation {
-    condition     = length(var.project_id) >= 3 && length(var.project_id) <= 26
-    error_message = "The project ID must be longer than 6 characters, and less than 30 characters. Thus, the id you provide here must be longer than 3 characters, and less than or equal to 26 chars to accommodate the randomized identifier."
-  }
-}
-
 variable "project_name" {
   type        = string
   description = "The human readable name of the project. Does not need to be unique."
+}
+
+variable "region" {
+  description = "Region for GCP resources"
+  type = string
 }
 
 variable "apis_to_enable" {
@@ -23,22 +18,6 @@ variable "enable_default_services" {
   type        = bool
   description = "Whether or not to enable the default cloudfunction or dataproc services. Set to false if you don't want to enable these, or if you want to manage them via apis_to_enable."
   default     = true
-}
-
-variable "gcp_folder_id" {
-  type        = string
-  description = "The ID numder of the GCP Organization folder to place the project in."
-}
-
-variable "billing_account_id" {
-  type        = string
-  description = "The ID of the billing account that the project should be associated with."
-
-}
-
-variable "owner_group_id" {
-  type        = string
-  description = "The email address for the group you would like to grant Owner access on the project."
 }
 
 variable "allow_broad_inst_ssh_access" {
@@ -56,12 +35,6 @@ variable "configure_dataproc_firewall_rules" {
 variable "primary_user_principal" {
   type        = string
   description = "The primary user/group of the GCP project. This grants Editor access, and other permissions generally required to use services. Provide a IAM principal style {group/user/serviceAccount}:{email} string."
-}
-
-variable "default_resource_region" {
-  type        = string
-  description = "For managed items that require a region/location"
-  default     = "us-central1"
 }
 
 variable "create_default_buckets" {
