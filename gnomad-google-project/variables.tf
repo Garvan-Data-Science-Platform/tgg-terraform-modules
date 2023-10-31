@@ -15,11 +15,6 @@ variable "enable_default_services" {
   default     = true
 }
 
-variable "owner_group_id" {
-  type        = string
-  description = "The email address for the group you would like to grant Owner access on the project."
-}
-
 variable "allow_broad_inst_ssh_access" {
   type        = bool
   description = "Whether to create a firewall rule that allows access to TCP port 22 from Broad Institute networks."

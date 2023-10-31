@@ -52,13 +52,6 @@ resource "google_project_iam_member" "default_compute_bucket_list" {
   member  = "serviceAccount:${data.google_project.current_project.number}-compute@developer.gserviceaccount.com"
 }
 
-# Project Owner group
-resource "google_project_iam_member" "owner_group" {
-  project = var.project_id
-  role    = "roles/owner"
-  member  = "group:${var.owner_group_id}"
-}
-
 # Permissions for primary user of the GCP project
 resource "google_project_iam_member" "primary_user_editor" {
   project = var.project_id
