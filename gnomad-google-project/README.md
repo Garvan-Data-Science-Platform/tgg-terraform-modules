@@ -11,7 +11,7 @@ This module is designed to easily spin up a google cloud project infrastructure 
   - Storage API (if necessary)
 - Create a VPC network to run resources in
 - Add some default firewall rules to allow for traffic in our commonly used service scenarios
-  - A firewall rule allowing SSH access to the networks from Broad IP ranges
+  - A firewall rule allowing SSH access to the networks from Garvan IP ranges
   - A firewall rule allowing SSH access to GCE VMs from the google IAP service (for GCP console-based SSH sessions)
 - Set a specified service account as the owner of the project
 - Grant the default compute service account permissions
@@ -45,7 +45,7 @@ When using this module, there's a few things to think about with regards to owne
 Firewall rules that are created by this module work on the basis of tags:
 
 - To allow dataproc nodes to communicate with eachother, ensure that your dataproc clusters are created with the 'dataproc-node' tag.
-- To allow a VM to be accessed via SSH from Broad Institute networks (i.e. the office or the VPN), tag your instances/clusters with 'broad-ssh'
+- To allow a VM to be accessed via SSH from Garvan Institute networks (i.e. the office or the VPN), tag your instances/clusters with 'garvan-ssh'
 
 ## Typical gnomAD project setup
 
@@ -83,7 +83,7 @@ When creating a GCP project for collaboration, the following actions are typical
 
 | Name | Type |
 |------|------|
-| [google_compute_firewall.allow_ssh_broad_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
+| [google_compute_firewall.allow_ssh_garvan_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
 | [google_compute_firewall.dataproc_internal](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
 | [google_compute_firewall.iap_forwarding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
 | [google_compute_network.project_network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) | resource |
@@ -112,7 +112,7 @@ When creating a GCP project for collaboration, the following actions are typical
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allow_broad_inst_ssh_access"></a> [allow\_broad\_inst\_ssh\_access](#input\_allow\_broad\_inst\_ssh\_access) | Whether to create a firewall rule that allows access to TCP port 22 from Broad Institute networks. | `bool` | `true` | no |
+| <a name="input_allow_garvan_inst_ssh_access"></a> [allow\_garvan\_inst\_ssh\_access](#input\_allow\_garvan\_inst\_ssh\_access) | Whether to create a firewall rule that allows access to TCP port 22 from Garvan Institute networks. | `bool` | `true` | no |
 | <a name="input_apis_to_enable"></a> [apis\_to\_enable](#input\_apis\_to\_enable) | The list of additional APIs to enable. We always enable dataproc and cloudfunctions. | `list(string)` | `[]` | no |
 | <a name="input_configure_dataproc_firewall_rules"></a> [configure\_dataproc\_firewall\_rules](#input\_configure\_dataproc\_firewall\_rules) | Whether we should configure firewall rules to allow all traffic between nodes tagged 'dataproc-node'. If you intend to use dataproc, you will need this. | `bool` | `true` | no |
 | <a name="input_cost_control_service_account"></a> [cost\_control\_service\_account](#input\_cost\_control\_service\_account) | The email address of the service account that handles your cost control script | `string` | `"gnomad-cost-control@billing-rehm-gnomad.iam.gserviceaccount.com"` | no |

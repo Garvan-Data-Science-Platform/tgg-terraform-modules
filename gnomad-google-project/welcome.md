@@ -14,14 +14,14 @@ It comes pre-configured with a few things to aid activities that are typical for
 
 - A VPC network called `<network-name>` is created so that VMs and dataproc clusters may be launched
 	- When launching VMs or Dataproc clusters, you should specify the network name:
-		- `hailctl dataproc start my-cluster --network=network-name, --tags=dataproc-node,ssh-broad`
-		- `gcloud dataproc cluster create my-cluster --network=network-name, --tags=dataproc-node,ssh-broad`
+		- `hailctl dataproc start my-cluster --network=network-name, --tags=dataproc-node,ssh-garvan`
+		- `gcloud dataproc cluster create my-cluster --network=network-name, --tags=dataproc-node,ssh-garvan`
 
 - Firewall rules that allow dataproc nodes to communicate with eachother is created.
 	- When launching dataproc clusters, you should tag the cluster with the `dataproc-node` tag
 
-- Firewall rules that allow connecting to instances / clusters from the Broad VPN
-	- When launching instances / clusters, tag them with the `ssh-broad` tag if you'd like to be able to log into the cluster using SSH, from Broad networks.
+- Firewall rules that allow connecting to instances / clusters from the Garvan VPN
+	- When launching instances / clusters, tag them with the `ssh-garvan` tag if you'd like to be able to log into the cluster using SSH, from Garvan networks.
 
 - A firewall rule to allow SSH access from the GCP Console.
 

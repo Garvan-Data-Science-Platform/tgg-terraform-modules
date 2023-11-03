@@ -29,9 +29,9 @@ resource "google_compute_firewall" "dataproc_internal" {
   target_tags = ["dataproc-node"]
 }
 
-resource "google_compute_firewall" "allow_ssh_broad_access" {
-  count   = var.allow_broad_inst_ssh_access ? 1 : 0
-  name    = "allow-ssh-broad"
+resource "google_compute_firewall" "allow_ssh_garvan_access" {
+  count   = var.allow_garvan_inst_ssh_access ? 1 : 0
+  name    = "allow-ssh-garvan"
   network = google_compute_network.project_network.name
   project = var.project_id
 
@@ -43,7 +43,7 @@ resource "google_compute_firewall" "allow_ssh_broad_access" {
   source_ranges = jsondecode(data.google_storage_bucket_object_content.internal_networks.content)
 
   target_tags = [
-    "ssh-broad"
+    "ssh-garvan"
   ]
 }
 

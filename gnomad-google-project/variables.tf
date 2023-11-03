@@ -15,10 +15,10 @@ variable "enable_default_services" {
   default     = true
 }
 
-variable "allow_broad_inst_ssh_access" {
+variable "allow_garvan_inst_ssh_access" {
   type        = bool
-  description = "Whether to create a firewall rule that allows access to TCP port 22 from Broad Institute networks."
-  default     = true
+  description = "Whether to create a firewall rule that allows access to TCP port 22 from Garvan Institute networks."
+  default     = false
 }
 
 variable "configure_dataproc_firewall_rules" {
