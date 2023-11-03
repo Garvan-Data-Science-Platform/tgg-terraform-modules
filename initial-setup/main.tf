@@ -22,3 +22,9 @@ resource "google_storage_bucket" "default" {
     enabled = true
   }
 }
+
+resource "google_storage_bucket" "networking" {
+  name  = "gnomad-networking"
+  location = var.region
+  storage_class = "STANDARD"
+}
