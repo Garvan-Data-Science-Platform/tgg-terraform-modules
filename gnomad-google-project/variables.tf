@@ -18,7 +18,7 @@ variable "enable_default_services" {
 variable "allow_garvan_inst_ssh_access" {
   type        = bool
   description = "Whether to create a firewall rule that allows access to TCP port 22 from Garvan Institute networks."
-  default     = false
+  default     = true
 }
 
 variable "configure_dataproc_firewall_rules" {

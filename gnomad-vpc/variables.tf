@@ -14,3 +14,20 @@ variable "dataproc_primary_subnet_range" {
   type        = string
   default     = "192.168.255.0/24"
 }
+
+variable "subnet_region" {
+  type        = string
+  description = "For managed items that require a region/location"
+  default     = "australia-southeast1"
+}
+
+variable "project_id" {
+  type        = string
+  description = "The unique id of the project."
+}
+
+variable "default_resource_region" {
+  type        = string
+  description = "For managed items that require a region/location"
+  default     = "australia-southeast1"
+}

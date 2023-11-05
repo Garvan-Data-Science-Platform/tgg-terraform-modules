@@ -4,13 +4,13 @@ module "gnomad-vpc" {
   subnets = [
     {
       subnet_name_suffix           = "gke"
-      subnet_region                = "us-east1"
+      subnet_region                = var.subnet_region
       ip_cidr_range                = var.gke_primary_subnet_range
       enable_private_google_access = true
     },
     {
       subnet_name_suffix           = "dataproc"
-      subnet_region                = "us-east1"
+      subnet_region                = var.subnet_region
       ip_cidr_range                = var.dataproc_primary_subnet_range
       enable_private_google_access = true
     }
@@ -52,4 +52,13 @@ resource "google_compute_firewall" "iap_forwarding" {
   }
 
   source_ranges = ["35.235.240.0/20"]
+}
+
+provider "google" {
+  project = var.project_id
+  region = var.default_resource_region
+}
+
+data "google_project" "current_project" {
+  project_id = var.project_id
 }

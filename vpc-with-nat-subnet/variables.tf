@@ -19,7 +19,7 @@ variable "subnets" {
   default = [
     {
       subnet_name_suffix           = "gke"
-      subnet_region                = "us-central1"
+      subnet_region                = "australia-southeast1"
       ip_cidr_range                = "192.168.0.0/20"
       enable_private_google_access = true
       subnet_flow_logs             = false
