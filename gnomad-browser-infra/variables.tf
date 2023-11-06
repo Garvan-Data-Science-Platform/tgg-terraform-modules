@@ -3,6 +3,12 @@ variable "project_id" {
   type        = string
 }
 
+variable "default_resource_region" {
+  type        = string
+  description = "For managed items that require a region/location"
+  default     = "australia-southeast1"
+}
+
 variable "infra_prefix" {
   description = "The string to use for a prefix on resource names (GKE cluster, GCS Buckets, Service Accounts, etc)"
   type        = string
@@ -21,7 +27,6 @@ variable "vpc_subnet_name" {
 variable "gke_control_plane_zone" {
   description = "The GCP zone where the GKE control plane will reside"
   type        = string
-  default     = "us-east1-c"
 }
 
 variable "gke_control_plane_authorized_networks" {
@@ -108,13 +113,11 @@ variable "gke_node_pools" {
 variable "es_snapshots_bucket_location" {
   description = "The GCS location for the elasticsearch snapshots bucket"
   type        = string
-  default     = "us-east1"
 }
 
 variable "data_pipeline_bucket_location" {
   description = "The GCS location for the data-pipeline bucket"
   type        = string
-  default     = "us-east1"
 }
 
 

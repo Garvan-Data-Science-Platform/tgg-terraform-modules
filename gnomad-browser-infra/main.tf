@@ -131,3 +131,12 @@ resource "kubernetes_service_account" "es_snaps" {
     }
   }
 }
+
+provider "google" {
+  project = var.project_id
+  region = var.default_resource_region
+}
+
+data "google_project" "current_project" {
+  project_id = var.project_id
+}
