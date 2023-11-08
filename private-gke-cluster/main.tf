@@ -84,6 +84,8 @@ resource "google_container_cluster" "gke_cluster" {
       }
     }
   }
+
+  deletion_protection = false
 }
 
 resource "google_container_node_pool" "node_pool" {
