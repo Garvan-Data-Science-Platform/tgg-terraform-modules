@@ -6,7 +6,6 @@ variable "project_id" {
 variable "default_resource_region" {
   type        = string
   description = "For managed items that require a region/location"
-  default     = "australia-southeast1"
 }
 
 variable "infra_prefix" {
