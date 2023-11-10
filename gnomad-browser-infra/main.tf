@@ -73,6 +73,7 @@ module "gnomad-gke" {
   source                 = "github.com/Garvan-Data-Science-Platform/tgg-terraform-modules//private-gke-cluster?ref=2-generalise-google-project"
   gke_cluster_name       = var.infra_prefix
   project_name           = var.project_id
+  deletion_protection    = var.deletion_protection
   gke_control_plane_zone = var.gke_control_plane_zone
   resource_labels = {
     "terraform"  = "true"

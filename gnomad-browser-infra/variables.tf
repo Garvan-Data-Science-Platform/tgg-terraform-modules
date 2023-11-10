@@ -8,6 +8,12 @@ variable "default_resource_region" {
   description = "For managed items that require a region/location"
 }
 
+variable "deletion_protection" {
+  description = "Whether or not to allow Terraform to destroy the cluster"
+  type        = string
+  default     = true
+}
+
 variable "infra_prefix" {
   description = "The string to use for a prefix on resource names (GKE cluster, GCS Buckets, Service Accounts, etc)"
   type        = string

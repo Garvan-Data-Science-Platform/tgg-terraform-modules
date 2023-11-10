@@ -8,6 +8,12 @@ variable "project_name" {
   type        = string
 }
 
+variable "deletion_protection" {
+  description = "Whether or not to allow Terraform to destroy the cluster"
+  type        = string
+  default     = true
+}
+
 variable "gke_control_plane_zone" {
   description = "The zone to launch the GKE cluster in"
   type        = string
