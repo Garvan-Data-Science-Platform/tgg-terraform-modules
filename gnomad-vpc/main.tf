@@ -1,5 +1,6 @@
 module "gnomad-vpc" {
-  source       = "github.com/broadinstitute/tgg-terraform-modules//vpc-with-nat-subnet?ref=vpc-with-nat-subnet-v1.0.0"
+  #source       = "github.com/broadinstitute/tgg-terraform-modules//vpc-with-nat-subnet?ref=vpc-with-nat-subnet-v1.0.0"
+  source       = "github.com/Garvan-Data-Science-Platform/tgg-terraform-modules//vpc-with-nat-subnet?ref=2-generalise-google-project"
   network_name = var.network_name_prefix
   subnets = [
     {
@@ -57,8 +58,4 @@ resource "google_compute_firewall" "iap_forwarding" {
 provider "google" {
   project = var.project_id
   region = var.default_resource_region
-}
-
-data "google_project" "current_project" {
-  project_id = var.project_id
 }
