@@ -8,12 +8,20 @@ module "gnomad-vpc" {
       subnet_region                = var.subnet_region
       ip_cidr_range                = var.gke_primary_subnet_range
       enable_private_google_access = true
+      subnet_flow_logs             = false
+      subnet_flow_logs_sampling    = "0.5"
+      subnet_flow_logs_metadata    = "EXCLUDE_ALL_METADATA"
+      subnet_flow_logs_filter      = "true"
     },
     {
       subnet_name_suffix           = "dataproc"
       subnet_region                = var.subnet_region
       ip_cidr_range                = var.dataproc_primary_subnet_range
       enable_private_google_access = true
+      subnet_flow_logs             = false
+      subnet_flow_logs_sampling    = "0.5"
+      subnet_flow_logs_metadata    = "EXCLUDE_ALL_METADATA"
+      subnet_flow_logs_filter      = "true"
     }
   ]
 }
