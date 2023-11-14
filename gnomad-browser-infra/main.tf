@@ -70,7 +70,7 @@ resource "google_storage_bucket" "data_pipeline" {
 }
 
 module "gnomad-gke" {
-  source                 = var.gke_sub_module_source
+  source                 = "github.com/Garvan-Data-Science-Platform/tgg-terraform-modules//private-gke-cluster?ref=2-generalise-modules"
   gke_cluster_name       = var.infra_prefix
   project_name           = var.project_id
   deletion_protection    = var.deletion_protection

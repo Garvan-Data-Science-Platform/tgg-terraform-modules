@@ -1,5 +1,5 @@
 module "gnomad-vpc" {
-  source       = var.vpc_sub_module_source
+  source       = "github.com/Garvan-Data-Science-Platform/tgg-terraform-modules//vpc-with-nat-subnet?ref=2-generalise-modules"
   network_name = var.network_name_prefix
   subnets = [
     {
