@@ -47,6 +47,7 @@ resource "google_storage_bucket" "elastic_snapshots" {
   storage_class               = "STANDARD"
   uniform_bucket_level_access = true
   public_access_prevention    = "enforced"
+  force_destroy               = var.bucket_force_destroy
 
   labels = {
     "deployment" = var.infra_prefix
@@ -61,6 +62,7 @@ resource "google_storage_bucket" "data_pipeline" {
   storage_class               = "STANDARD"
   uniform_bucket_level_access = true
   public_access_prevention    = "enforced"
+  force_destroy               = var.bucket_force_destroy
 
   labels = {
     "deployment" = var.infra_prefix

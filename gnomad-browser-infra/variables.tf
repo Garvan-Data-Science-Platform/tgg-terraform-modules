@@ -15,6 +15,12 @@ variable "default_resource_region" {
   default     = "us-east1"
 }
 
+variable "bucket_force_destroy" {
+  description = "Whether or not to allow Terraform to delete datapipeline and snapshot buckets if they are not empty"
+  type        = string
+  default     = false
+}
+
 variable "deletion_protection" {
   description = "Whether or not to allow Terraform to destroy the cluster"
   type        = string
