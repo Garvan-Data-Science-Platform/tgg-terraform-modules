@@ -37,3 +37,9 @@ variable "default_resource_region" {
   description = "For managed items that require a region/location"
   default     = "us-central1"
 }
+
+variable "authorized_networks" {
+  description = "The IPv4 CIDR ranges that should be allowed to connect to dataproc"
+  type        = list(string)
+  default     = []
+}
