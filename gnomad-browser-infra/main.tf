@@ -17,6 +17,12 @@ resource "google_project_iam_member" "data_pipeline_service_consumer" {
   project = var.project_id
 }
 
+resource "google_project_iam_member" "data_pipeline_storage_access" {
+  role    = "roles/storage.objectViewer",
+  member  = google_service_account.data_pipeline.member
+  project = var.project_id
+}
+
 resource "google_storage_bucket_iam_member" "data_pipeline" {
   bucket = google_storage_bucket.data_pipeline.name
   role   = "roles/storage.admin"
